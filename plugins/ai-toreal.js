@@ -52,8 +52,8 @@ let handler = async (m, { conn }) => {
         conn.sendMessage(m.chat, { image: { url: outputUrl }, caption: "Berikut hasil toreal realistiknya!" }, { quoted: m });
 
     } catch (err) {
-        console.log(err.response?.data || err);
-        m.reply('Terjadi kesalahan saat proses Stability AI.');
+        console.log('Stability AI Error:', err.response?.status, err.response?.data || err.message);
+        m.reply('Terjadi kesalahan saat proses Stability AI: ' + (err.response?.status || err.message));
     }
 }
 
