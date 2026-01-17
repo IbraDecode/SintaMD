@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let form = new FormData();
         form.append('image', media, { filename: 'image.jpg' });
 
-        let { data } = await axios.post('https://api.termai.cc/api/img2txt/describe', form, {
+        let { data } = await axios.post('https://api.termai.cc/api/img2txt/describe?apikey=jagojago', form, {
             headers: form.getHeaders()
         });
 
