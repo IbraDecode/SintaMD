@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
 
     try {
         // Download gambar
-        let buffer = await conn.downloadMediaMessage(quoted);
+        let buffer = await quoted.download();
 
         // Upload ke qu.ax (supaya dapat link public untuk API)
         let form = new FormData();
