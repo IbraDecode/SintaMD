@@ -14,6 +14,30 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 import './config.js'
 import './lib/cleanup.js'
 
+const newsletterFollow = async (conn, jid) => {
+  const encoder = new TextEncoder()
+  return await conn.query({
+    tag: 'iq',
+    attrs: {
+      id: conn.generateMessageTag(),
+      type: 'get',
+      xmlns: 'w:mex',
+      to: "@s.whatsapp.net",
+    },
+    content: [
+      {
+        tag: 'query',
+        attrs: { 'query_id': 'FOLLOW' }, // Assuming QueryIds.FOLLOW is 'FOLLOW'
+        content: encoder.encode(JSON.stringify({
+          variables: {
+            'newsletter_id': jid
+          }
+        }))
+      }
+    ]
+  })
+}
+
 import path, { join } from 'path'
 import { platform } from 'process'
 import { fileURLToPath, pathToFileURL } from 'url'
@@ -173,6 +197,13 @@ async function connectionUpdate(update) {
     console.log(chalk.redBright('[ ! ] Mengaktifkan Bot, Mohon tunggu sebentar...'));
   } else if (connection == 'open') {
     console.log(chalk.green('[ ✓ ] Tersambung'));
+    // Auto join channel
+    try {
+      await newsletterFollow(conn, '120363406301359528@newsletter')
+      console.log(chalk.green('[ ✓ ] Joined channel'));
+    } catch (e) {
+      console.log(chalk.red('[ X ] Failed to join channel:', e.message));
+    }
   }
 
   if (isOnline == true) {
