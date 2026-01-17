@@ -173,6 +173,39 @@ Terima kasih kepada:
 
 *Powered by Node.js and Baileys*
 
+## Contributors
+
+<div align="center">
+
+[![GitHub contributors](https://img.shields.io/github/contributors/IbraDecode/SintaMD)](https://github.com/IbraDecode/SintaMD/graphs/contributors)
+
+### Terima Kasih Khusus
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/IbraDecode">
+        <img src="https://github.com/IbraDecode.png" width="100px;" alt="Ibra Decode"/><br />
+        <sub><b>Ibra Decode</b></sub>
+      </a>
+      <br />
+      <sub>Creator & Main Developer</sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com">
+        <img src="https://via.placeholder.com/100?text=You" width="100px;" alt="You"/><br />
+        <sub><b>Anda?</b></sub>
+      </a>
+      <br />
+      <sub>Future Contributor</sub>
+    </td>
+  </tr>
+</table>
+
+*Kontribusi Anda sangat dihargai! Jika ingin bergabung, lihat [Panduan Kontribusi](#kontribusi).*
+
+</div>
+
 ## Kontribusi
 
 <details>
