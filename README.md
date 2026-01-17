@@ -204,11 +204,17 @@ Lisensi GPL-3.0-or-later. Lihat file [LICENSE](LICENSE) untuk detail.
 
 ## Author
 
-**Ibra Decode**
-- GitHub: [@IbraDecode](https://github.com/IbraDecode)
-- Website: [ibraa.web.id](https://ibraa.web.id)
-- WhatsApp: [+31617786379](https://wa.me/31617786379)
+<div align="center">
+
+**Ibra Decode**  
+*Developer & Creator of SintaMD*
+
+[![GitHub](https://img.shields.io/badge/GitHub-@IbraDecode-181717?style=flat-square&logo=github)](https://github.com/IbraDecode)
+[![Website](https://img.shields.io/badge/Website-ibraa.web.id-FF6B35?style=flat-square&logo=firefox)](https://ibraa.web.id)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat-25D366?style=flat-square&logo=whatsapp)](https://wa.me/31617786379)
 
 ---
 
-* Jika suka proyek ini, beri star di GitHub!
+*Jika suka proyek ini, beri star di GitHub!*
+
+</div>
