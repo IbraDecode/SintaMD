@@ -10,10 +10,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         text = 'https://' + text;
     }
 
-    const ssweb = async (url, mode) => {
+    const ssweb = async (url, type) => {
         try {
-            let response = await axios.get(`${APIs.ryzumi}/api/tool/ssweb`, {
-                params: { url, mode },
+            let response = await axios.get(`https://skizoasia.xyz/api/ssweb?type=${type}&url=${encodeURIComponent(url)}&apikey=nonogembul`, {
                 responseType: 'arraybuffer'
             });
             return response.data;
@@ -23,14 +22,20 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         }
     };
 
-    let screenshot;
-    if (command === 'sshp') {
-        screenshot = await ssweb(text, 'handphone');
-    } else if (command === 'sspc') {
-        screenshot = await ssweb(text, 'desktop');
-    } else if (command === 'ssweb') {
-        screenshot = await ssweb(text, 'desktop');
+    let type = 'mobile'; // default mobile
+    let url = text;
+
+    if (text.includes(' ')) {
+        let [arg1, arg2] = text.split(' ');
+        if (arg1 === 'desktop' || arg1 === 'mobile') {
+            type = arg1;
+            url = arg2;
+        } else {
+            url = text;
+        }
     }
+
+    let screenshot = await ssweb(url, type);
     if (!screenshot) {
         return m.reply("Gagal mengambil screenshot. Pastikan URL valid atau coba lagi nanti.");
     }
@@ -43,9 +48,9 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     }, { quoted: m });
 };
 
-handler.help = ['ssweb', 'sspc', 'sshp'].map(v => v + ' <url>');
+handler.help = ['ssweb <url>', 'ssweb desktop <url>', 'ssweb mobile <url>'];
 handler.tags = ['internet'];
-handler.command = /^(ssweb|sspc|sshp)$/i;
+handler.command = /^(ssweb)$/i;
 
 handler.limit = 1
 handler.register = true
