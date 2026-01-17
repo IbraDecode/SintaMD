@@ -13,6 +13,8 @@ let handler = async (m, { conn, usedPrefix }) => {
         let form = new FormData();
         form.append('image', media, { filename: 'image.jpg' });
 
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Delay 2s to avoid rate limit
+
         let { data } = await axios.post('https://api.termai.cc/api/img2txt/describe?apikey=jagojago', form, {
             headers: form.getHeaders()
         });
