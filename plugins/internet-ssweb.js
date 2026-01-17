@@ -13,12 +13,16 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     const ssweb = async (url, type) => {
         try {
             let viewport = type === 'mobile' ? 375 : 2400;
-            let response = await axios.get(`https://image.thum.io/get/png/fullpage/viewportWidth/${viewport}/${encodeURIComponent(url)}`, {
-                responseType: 'arraybuffer'
+            let apiUrl = `https://image.thum.io/get/png/fullpage/viewportWidth/${viewport}/${encodeURIComponent(url)}`;
+            console.log('Requesting:', apiUrl);
+            let response = await axios.get(apiUrl, {
+                responseType: 'arraybuffer',
+                timeout: 30000
             });
+            console.log('Response status:', response.status, 'Size:', response.data.length);
             return response.data;
         } catch (err) {
-            console.error(err);
+            console.error('SSWeb error:', err.message);
             return null;
         }
     };
