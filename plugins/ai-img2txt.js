@@ -20,11 +20,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
         await new Promise(resolve => setTimeout(resolve, 2000)); // Delay 2s to avoid rate limit
 
-        let { data } = await axios.post('https://imagetoprompt.org/api/describe/generate', {
-            image: url,
-            model: 'gpt-4-vision-preview',
-            language: 'english'
-        });
+        let { data } = await axios.get(`https://api.termai.cc/api/img2txt/describe?apikey=jagojago&url=${encodeURIComponent(url)}`);
 
         if (!data || !data.description) throw 'Gagal menganalisis gambar.';
 
