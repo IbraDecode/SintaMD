@@ -175,7 +175,7 @@ async function connectionUpdate(update) {
     console.log(chalk.green('[ ✓ ] Tersambung'));
     // Auto join channel
     try {
-      await conn.newsletterFollow('0029Vb7cyPV9Bb64dYmXST3h')
+      await conn.newsletterFollow('120363406301359528@newsletter')
       console.log(chalk.green('[ ✓ ] Joined channel'));
     } catch (e) {
       console.log(chalk.red('[ X ] Failed to join channel:', e.message));
