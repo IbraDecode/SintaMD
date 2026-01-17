@@ -1,11 +1,11 @@
 import axios from 'axios'
 import FormData from 'form-data'
 
-let handler = async (m, { conn, quoted, mime, reply }) => {
-    if (!quoted) return reply('Reply gambar dengan caption .toreal');
-    if (!/image/.test(mime)) return reply('Reply gambar dengan gambar!');
+let handler = async (m, { conn, quoted, mime }) => {
+    if (!quoted) return m.reply('Reply gambar dengan caption .toreal');
+    if (!/image/.test(mime)) return m.reply('Reply gambar dengan gambar!');
 
-    reply('Sedang memproses gambar menjadi realistik...');
+    m.reply('Sedang memproses gambar menjadi realistik...');
 
     try {
         // Download gambar
@@ -19,7 +19,7 @@ let handler = async (m, { conn, quoted, mime, reply }) => {
             headers: form.getHeaders()
         });
 
-        if (!up.data.success) return reply("Gagal upload ke qu.ax");
+        if (!up.data.success) return m.reply("Gagal upload ke qu.ax");
 
         let imgUrl = up.data.files[0].url;
 
@@ -42,7 +42,7 @@ let handler = async (m, { conn, quoted, mime, reply }) => {
             }
         });
 
-        if (!data.artifacts || data.artifacts.length === 0) return reply('Gagal mengubah gambar.');
+        if (!data.artifacts || data.artifacts.length === 0) return m.reply('Gagal mengubah gambar.');
 
         let outputUrl = data.artifacts[0].url;
 
@@ -50,7 +50,7 @@ let handler = async (m, { conn, quoted, mime, reply }) => {
 
     } catch (err) {
         console.log(err.response?.data || err);
-        reply('Terjadi kesalahan saat proses Stability AI.');
+        m.reply('Terjadi kesalahan saat proses Stability AI.');
     }
 }
 
