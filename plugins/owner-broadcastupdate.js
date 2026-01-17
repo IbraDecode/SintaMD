@@ -24,9 +24,8 @@ setInterval(async () => {
             let targets = [global.pairing + '@s.whatsapp.net']
             global.owner.forEach(o => targets.push(o[0] + '@s.whatsapp.net'))
 
-            for (let target of targets) {
-                await global.conn.sendMessage(target, { text: msg }).catch(() => {})
-            }
+            // Note: Auto broadcast disabled due to conn context issue
+            // Uncomment and fix when conn is available globally
         }
     } catch (e) {
         console.log('Error auto check update:', e)
@@ -59,7 +58,7 @@ let handler = async (m, { conn, isOwner }) => {
             await conn.sendMessage(target, { text: msg }).catch(() => {})
         }
 
-        m.reply(`Broadcast update info ke ${chats.length} chat selesai!`)
+        m.reply(`Broadcast update info ke ${targets.length} target selesai!`)
 
     } catch (e) {
         m.reply('Error: ' + e)
