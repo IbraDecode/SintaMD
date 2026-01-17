@@ -1,23 +1,25 @@
-import fetch from 'node-fetch'
-import { uploadPomf } from '../lib/uploadImage.js'
+import axios from 'axios'
+import FormData from 'form-data'
 
 let handler = async (m, { conn, usedPrefix }) => {
     try {
         await m.react('🕓')
         let q = m.quoted ? m.quoted : m;
         let mime = (q.msg || q).mimetype || '';
-        if (!mime) throw `Kirim/Reply Gambar dengan caption ${usedPrefix}img2txt`;
-
+        if (!mime) throw `Kirim/Reply Gambar dengan caption ${usedPrefix}toprompt`;
 
         let media = await q.download();
-        let url = await uploadPomf(media);
 
-        let response = await fetch(`${APIs.ryzumi}/api/ai/image2txt?url=${url}`);
-        if (!response.ok) throw new Error('Failed to fetch data from API');
+        let form = new FormData();
+        form.append('image', media, { filename: 'image.jpg' });
 
-        let { result: hasil } = await response.json();
+        let { data } = await axios.post('https://api.termai.cc/api/img2txt/describe', form, {
+            headers: form.getHeaders()
+        });
 
-        await conn.sendMessage(m.chat, { text: hasil }, { quoted: m });
+        if (!data || !data.description) throw 'Gagal menganalisis gambar.';
+
+        await conn.sendMessage(m.chat, { text: `Prompt dari gambar:\n\n${data.description}` }, { quoted: m });
     } catch (error) {
         m.reply(`Error: ${error}`);
     }
