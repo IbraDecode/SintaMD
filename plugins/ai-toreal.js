@@ -37,7 +37,7 @@ let handler = async (m, { conn }) => {
             samples: 1
         };
 
-        let { data } = await axios.post('https://api.stability.ai/v2beta/stable-image-to-image', payload, {
+        let { data } = await axios.post('https://api.stability.ai/v2beta/stable-image/edit/image-to-image', payload, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json',
