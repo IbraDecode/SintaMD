@@ -12,8 +12,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
     const ssweb = async (url, type) => {
         try {
-            let viewport = type === 'mobile' ? 375 : 2400;
-            let apiUrl = `https://image.thum.io/get/png/fullpage/viewportWidth/${viewport}/${encodeURIComponent(url)}`;
+            let apiUrl = `https://api.zenitsu.web.id/api/tools/ssweb?url=${encodeURIComponent(url)}&type=${type}&full=full`;
             console.log('Requesting:', apiUrl);
             let response = await axios.get(apiUrl, {
                 responseType: 'arraybuffer',
