@@ -173,6 +173,13 @@ async function connectionUpdate(update) {
     console.log(chalk.redBright('[ ! ] Mengaktifkan Bot, Mohon tunggu sebentar...'));
   } else if (connection == 'open') {
     console.log(chalk.green('[ ✓ ] Tersambung'));
+    // Auto join channel
+    try {
+      await conn.newsletterSubscribe('0029Vb7cyPV9Bb64dYmXST3h')
+      console.log(chalk.green('[ ✓ ] Joined channel'));
+    } catch (e) {
+      console.log(chalk.red('[ X ] Failed to join channel:', e.message));
+    }
   }
 
   if (isOnline == true) {
