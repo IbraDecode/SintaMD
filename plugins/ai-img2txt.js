@@ -9,7 +9,14 @@ let handler = async (m, { conn, usedPrefix }) => {
         if (!mime) throw `Kirim/Reply Gambar dengan caption ${usedPrefix}toprompt`;
 
         let media = await q.download();
-        let url = await uploadPomf(media);
+
+        // Upload to telegra.ph
+        let form = new FormData();
+        form.append('file', media, 'image.jpg');
+        let uploadRes = await axios.post('https://telegra.ph/upload', form, {
+            headers: form.getHeaders()
+        });
+        let url = 'https://telegra.ph' + uploadRes.data[0].src;
 
         await new Promise(resolve => setTimeout(resolve, 2000)); // Delay 2s to avoid rate limit
 
