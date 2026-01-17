@@ -20,10 +20,12 @@ setInterval(async () => {
                       `Link: ${html_url}\n\n` +
                       `Gunakan .update untuk update otomatis!`
 
-            // Broadcast ke semua chat
-            let chats = Object.keys(global.conn.chats || {}).filter(id => id.endsWith('@s.whatsapp.net'))
-            for (let chat of chats) {
-                await global.conn.sendMessage(chat, { text: msg }).catch(() => {})
+            // Broadcast ke pairing number dan owner
+            let targets = [global.pairing + '@s.whatsapp.net']
+            global.owner.forEach(o => targets.push(o[0] + '@s.whatsapp.net'))
+
+            for (let target of targets) {
+                await global.conn.sendMessage(target, { text: msg }).catch(() => {})
             }
         }
     } catch (e) {
@@ -49,10 +51,12 @@ let handler = async (m, { conn, isOwner }) => {
                   `Link: ${html_url}\n\n` +
                   `Gunakan .update untuk update otomatis!`
 
-        // Broadcast ke semua chat
-        let chats = Object.keys(conn.chats).filter(id => id.endsWith('@s.whatsapp.net'))
-        for (let chat of chats) {
-            await conn.sendMessage(chat, { text: msg })
+        // Broadcast ke pairing number dan owner
+        let targets = [global.pairing + '@s.whatsapp.net']
+        global.owner.forEach(o => targets.push(o[0] + '@s.whatsapp.net'))
+
+        for (let target of targets) {
+            await conn.sendMessage(target, { text: msg }).catch(() => {})
         }
 
         m.reply(`Broadcast update info ke ${chats.length} chat selesai!`)
