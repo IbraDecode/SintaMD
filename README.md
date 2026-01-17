@@ -3,6 +3,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node.js Version](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![GitHub Stars](https://img.shields.io/github/stars/IbraDecode/SintaMD?style=social)](https://github.com/IbraDecode/SintaMD)
+[![Visitors](https://visitor-badge.glitch.me/badge?page_id=IbraDecode.SintaMD)](https://github.com/IbraDecode/SintaMD)
+[![GitHub last commit](https://img.shields.io/github/last-commit/IbraDecode/SintaMD)](https://github.com/IbraDecode/SintaMD/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/IbraDecode/SintaMD)](https://github.com/IbraDecode/SintaMD/issues)
 
 # SintaMD
 
@@ -11,12 +14,16 @@ Bot WhatsApp multi-device berbasis Node.js dengan fitur lengkap untuk otomasi da
 ## Daftar Isi
 
 - [Deskripsi](#deskripsi)
+- [Demo](#demo)
 - [Fitur Utama](#fitur-utama)
 - [Persyaratan](#persyaratan)
 - [Instalasi](#instalasi)
 - [Penggunaan](#penggunaan)
 - [Contoh Perintah](#contoh-perintah)
 - [Troubleshooting](#troubleshooting)
+- [Roadmap](#roadmap)
+- [FAQ](#faq)
+- [Credits](#credits)
 - [Kontribusi](#kontribusi)
 - [Lisensi](#lisensi)
 - [Author](#author)
@@ -30,6 +37,12 @@ SintaMD adalah bot WhatsApp yang mendukung multi-device, dibangun menggunakan Ba
 - **Modular Plugins**: 183+ plugin untuk berbagai fungsi.
 - **Database JSON**: Persistent storage untuk user dan chat data.
 - **Event-Driven**: Respon cepat terhadap pesan dan event grup.
+
+## Demo
+
+![SintaMD Demo](https://raw.githubusercontent.com/IbraDecode/MyAssets/main/demo.gif)
+
+*Demo menampilkan bot dalam aksi: pairing, menu, dan perintah AI.*
 
 ## Fitur Utama
 
@@ -52,6 +65,9 @@ SintaMD adalah bot WhatsApp yang mendukung multi-device, dibangun menggunakan Ba
 - Akun WhatsApp aktif untuk pairing
 
 ## Instalasi
+
+<details>
+<summary>Klik untuk panduan instalasi lengkap</summary>
 
 1. Pastikan Node.js dan NPM terinstall.
 
@@ -78,6 +94,8 @@ SintaMD adalah bot WhatsApp yang mendukung multi-device, dibangun menggunakan Ba
    ```
    npm run dev
    ```
+
+</details>
 
 ## Penggunaan
 
@@ -112,7 +130,53 @@ Lihat semua perintah dengan `.menu` atau cek folder `plugins/` untuk detail.
 
 Jika masalah berlanjut, buat issue di [GitHub Issues](https://github.com/IbraDecode/SintaMD/issues) dengan log error.
 
+## Roadmap
+
+- [ ] Integrasi lebih banyak AI models
+- [ ] Dashboard web untuk management
+- [ ] Multi-language support
+- [ ] Plugin marketplace
+- [ ] Optimasi performa untuk large groups
+
+## FAQ
+
+<details>
+<summary>Klik untuk FAQ</summary>
+
+**Q: Bagaimana cara pairing bot?**  
+A: Jalankan bot, ikuti instruksi pairing code di terminal, masukkan ke WhatsApp.
+
+**Q: Bot tidak merespons perintah?**  
+A: Pastikan prefix "." digunakan, dan Anda memiliki permission (user/admin/owner).
+
+**Q: Bagaimana update bot?**  
+A: Pull dari git: `git pull origin main`, lalu restart.
+
+**Q: Premium features apa saja?**  
+A: Unlimited limits, priority support, exclusive commands. Hubungi owner.
+
+**Q: Error saat install?**  
+A: Pastikan Node.js 18+, hapus node_modules dan npm install ulang.
+
+</details>
+
+## Credits
+
+Terima kasih kepada:
+
+- **Base Project**: Elaina-MultiDevice
+- **Libraries**: Baileys, LowDB, Axios, dll.
+- **Contributors**: Semua yang membantu development
+- **Community**: Pengguna dan tester
+
+---
+
+*Powered by Node.js and Baileys*
+
 ## Kontribusi
+
+<details>
+<summary>Klik untuk panduan kontribusi</summary>
 
 Kontribusi diterima! Ikuti panduan berikut:
 
@@ -131,6 +195,8 @@ Kontribusi diterima! Ikuti panduan berikut:
 - Jangan commit secrets atau API keys.
 
 Untuk pertanyaan, hubungi [Ibra Decode](https://github.com/IbraDecode).
+
+</details>
 
 ## Lisensi
 
