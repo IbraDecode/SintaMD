@@ -9,15 +9,11 @@ let handler = async (m, { conn, usedPrefix }) => {
         if (!mime) throw `Kirim/Reply Gambar dengan caption ${usedPrefix}toprompt`;
 
         let media = await q.download();
-
-        let form = new FormData();
-        form.append('image', media, { filename: 'image.jpg' });
+        let url = await uploadPomf(media);
 
         await new Promise(resolve => setTimeout(resolve, 2000)); // Delay 2s to avoid rate limit
 
-        let { data } = await axios.post('https://api.termai.cc/api/img2txt/describe?apikey=jagojago', form, {
-            headers: form.getHeaders()
-        });
+        let { data } = await axios.get(`https://api.termai.cc/api/img2txt/describe?apikey=jagojago&url=${encodeURIComponent(url)}`);
 
         if (!data || !data.description) throw 'Gagal menganalisis gambar.';
 
