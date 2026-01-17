@@ -1,7 +1,9 @@
 import axios from 'axios'
 import FormData from 'form-data'
 
-let handler = async (m, { conn, quoted, mime }) => {
+let handler = async (m, { conn }) => {
+    let quoted = m.quoted;
+    let mime = quoted?.mimetype || quoted?.mime;
     console.log('Quoted:', quoted, 'Mime:', mime);
     if (!quoted) return m.reply('Reply gambar dengan caption .toreal');
     if (!/image/.test(mime)) return m.reply('Reply gambar dengan gambar!');
