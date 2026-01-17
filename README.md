@@ -7,9 +7,29 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/IbraDecode/SintaMD)](https://github.com/IbraDecode/SintaMD/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/IbraDecode/SintaMD)](https://github.com/IbraDecode/SintaMD/issues)
 
+<div align="center">
+
 # SintaMD
 
-Bot WhatsApp multi-device berbasis Node.js dengan fitur lengkap untuk otomasi dan hiburan.
+```
+   _____         _           __  __ ______
+  / ___/____  __(_)___ ___  / /_/ // ____/
+  \__ \/ __ \/ / / __ `__ \/ __  //___ \
+ ___/ / /_/ / / / / / / / / /_/ //___/ /
+/____/\____/_/_/_/ /_/ /_/\__/_//_____/
+
+```
+
+*Bot WhatsApp multi-device berbasis Node.js dengan fitur lengkap untuk otomasi dan hiburan.*
+
+> **Tagline**: Otomasi WhatsApp yang Powerful, Simple, dan Fun!  
+> **Created by**: [Ibra Decode](https://github.com/IbraDecode) | Wave: ~
+
+[![Version](https://img.shields.io/badge/Version-0.61.1-blue.svg)](https://github.com/IbraDecode/SintaMD)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/IbraDecode/SintaMD)
+[![Platform](https://img.shields.io/badge/Platform-Node.js-339933.svg)](https://nodejs.org/)
+
+</div>
 
 ## Daftar Isi
 
