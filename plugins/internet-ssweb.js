@@ -12,7 +12,8 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
     const ssweb = async (url, type) => {
         try {
-            let response = await axios.get(`https://skizoasia.xyz/api/ssweb?type=${type}&url=${encodeURIComponent(url)}&apikey=nonogembul`, {
+            let viewport = type === 'mobile' ? 375 : 2400;
+            let response = await axios.get(`https://image.thum.io/get/png/fullpage/viewportWidth/${viewport}/${encodeURIComponent(url)}`, {
                 responseType: 'arraybuffer'
             });
             return response.data;
