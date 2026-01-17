@@ -12,18 +12,11 @@ let handler = async (m, { conn, text }) => {
 
     try {
         let media = await q.download();
-
-        // Upload to telegra.ph
-        let form = new FormData();
-        form.append('file', media, 'image.jpg');
-        let uploadRes = await axios.post('https://telegra.ph/upload', form, {
-            headers: form.getHeaders()
-        });
-        let imageUrl = 'https://telegra.ph' + uploadRes.data[0].src;
+        let base64Image = media.toString('base64');
 
         // Edit with termai API
         let { data } = await axios.post('https://api.termai.cc/api/img2img/edit?key=jagojago', {
-            image: imageUrl,
+            image: base64Image,
             prompt: text
         });
 
